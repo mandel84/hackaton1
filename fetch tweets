@@ -1,0 +1,5 @@
+def fetch_tweets(keyword,max_results=10):
+    client = tweepy.Client(bearer_token=BEARER_TOKEN)
+    query =f'{keyword} lang:en'
+    response = client.search_recent_tweets(query=query,max_results=max_results,tweet_fields=['id','text','author_id','created_at'])
+    return response.data
